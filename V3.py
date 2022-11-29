@@ -61,7 +61,7 @@ attention = AdditiveAttention(key_size=2, query_size=20, num_hiddens=8,
                               dropout=0.1)
 
 attention.eval()
-attention(queries, keys, values, valid_lens)
+print(attention(queries, keys, values, valid_lens))
 
 
 # DotProductAttention  缩放点积注意力
@@ -78,7 +78,7 @@ class DotProductAttention(nn.Module):
         return torch.bmm(self.dropout(self.attention_weights), values)
 
 
-queries = torch.normal(0, 1, (2, 1, 2))
-attention = DotProductAttention(dropout=0.5)
-attention.eval()
-print(attention(queries, keys, values, valid_lens))
+# queries = torch.normal(0, 1, (2, 1, 2))
+# attention = DotProductAttention(dropout=0.5)
+# attention.eval()
+# print(attention(queries, keys, values, valid_lens))
